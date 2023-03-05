@@ -1,4 +1,4 @@
-package Css_Odev;
+package Xpath_Odev;
 
 import Untility.BaseDriver;
 import Untility.MyFunc;
@@ -6,8 +6,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 /*
+3-
         1) Bu siteye gidin. -> https://www.snapdeal.com/
 
         2) "teddy bear" aratın ve Search butonuna tıklayın.
@@ -17,19 +17,19 @@ import org.openqa.selenium.WebElement;
 
  */
 
-public class Odev_03 extends BaseDriver {
+public class _03_Soru extends BaseDriver {
 
     @Test
     public void Test() {
         driver.get("https://www.snapdeal.com/");
 
-        WebElement text = driver.findElement(By.cssSelector("div[class='col-xs-14 search-box-wrapper'] > [type='text']"));
+        WebElement text = driver.findElement(By.xpath("//input[@id='inputValEnter']"));
         text.sendKeys("teddy bear");
 
-        WebElement search = driver.findElement(By.cssSelector("span[class='searchTextSpan']"));
+        WebElement search = driver.findElement(By.xpath("//span[@class='searchTextSpan']"));
         search.click();
 
-        WebElement teddyBear = driver.findElement(By.cssSelector("div[id='searchMessageContainer'] [class='nnn']"));
+        WebElement teddyBear = driver.findElement(By.xpath("//div[@id='searchMessageContainer']//span[@class='nnn']"));
         MyFunc.Bekle(2);
 
         Assert.assertTrue(teddyBear.getText().contains("results for teddy bear"));
